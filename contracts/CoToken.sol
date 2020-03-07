@@ -1,6 +1,7 @@
 pragma solidity ^0.5.0;
 
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "./CoShoe.sol";
 
 contract CoToken is Ownable {
     
@@ -9,7 +10,7 @@ contract CoToken is Ownable {
 // mapping of balances
     mapping (address => uint) public balances;
 
-        constructor() internal { 
+        constructor() public { 
         balances[msg.sender] = TotalSupply;
 
     }

@@ -20,6 +20,7 @@ contract CoShoe {
 
     // public array holding instance of shoes
     Shoe[] public shoes;
+    CoToken public cotoken;
 
     //  map containing balances
     //mapping (address => uint) public balances;
@@ -27,7 +28,7 @@ contract CoShoe {
     address payable public minter;
 
     // constructor to mint 100 coshoe tokens
-    constructor () internal {
+    constructor () public {
         // set address of deployer to be owner
         //  instance within shoe array
         Shoe memory shoeArray;
@@ -49,7 +50,7 @@ contract CoShoe {
     
     // function called buyhsoe
     function buyShoe(string memory _name, string memory _image, address addr) public {
-    CoToken cotoken = CoToken(addr);
+    cotoken = CoToken(addr);
     // find pair of shoes that have not been sold yet
     
     require(shoesSold >0  || shoesSold <=100, "The are no shoes available.");
